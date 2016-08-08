@@ -3,6 +3,7 @@ package com.uran.dao;
 import com.uran.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,9 @@ public class UserDAOImpl implements UserDAO {
 
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
+    }
+
+    public UserDAOImpl() {
     }
 
     @Override
@@ -47,9 +51,11 @@ public class UserDAOImpl implements UserDAO {
             getCurrentSession().delete(user);
     }
 
+    //????????????????????????????????????????????????
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsers() {
-        return getCurrentSession().createQuery("SELECT * from User").list();
+        //return getCurrentSession().createQuery("from User").list();
+        return null;
     }
 }
