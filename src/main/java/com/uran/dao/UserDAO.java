@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface UserDAO {
 
-    public void addTeam(User user);
-    public void updateTeam(User user);
+    public void addUser(User user);
+    public void updateUser(User user);
     public User getUser(int id);
     public void deleteUser(int id);
     public List<User> getUsers();
