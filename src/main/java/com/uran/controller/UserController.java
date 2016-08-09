@@ -22,12 +22,12 @@ public class UserController {
     @RequestMapping(value="/add", method= RequestMethod.GET)
     public ModelAndView addUserPage() {
         ModelAndView modelAndView = new ModelAndView("add-user-form");
-        modelAndView.addObject("team", new User());
+        modelAndView.addObject("user", new User());
         return modelAndView;
     }
 
     @RequestMapping(value="/add", method=RequestMethod.POST)
-    public ModelAndView addingTeam(@ModelAttribute User user) {
+    public ModelAndView addingUser(@ModelAttribute User user) {
         ModelAndView modelAndView = new ModelAndView("home");
         userService.addUser(user);
         String message = "User was successfully added.";
@@ -37,7 +37,7 @@ public class UserController {
 
     @RequestMapping(value="/list")
     public ModelAndView listOfUsers() {
-        ModelAndView modelAndView = new ModelAndView("list-of-teams");
+        ModelAndView modelAndView = new ModelAndView("list-of-users");
         List<User> users = userService.getUsers();
         modelAndView.addObject("users", users);
         return modelAndView;
