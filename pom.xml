@@ -116,7 +116,7 @@
     </repositories>
 
     <build>
-        <finalName>test_task</finalName>
+        <finalName>test-task</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

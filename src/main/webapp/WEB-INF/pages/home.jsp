@@ -18,13 +18,9 @@
 <body>
 <h1>Home page</h1>
 <p>
-    ${"I am here!"}
     ${message}<br/>
     <a href="${pageContext.request.contextPath}/user/add.html">Add new user</a><br/>
     <a href="${pageContext.request.contextPath}/user/list.html">User list</a><br/>
 </p>
 </body>
 </html>
-<!--
-<a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
--->

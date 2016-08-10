@@ -20,7 +20,7 @@
 <h1>Edit user page</h1>
 <p>Here you can edit the existing user.</p>
 <p>${message}</p>
-<%--@elvariable id="user" type="org.uran.model.User"--%>
+<%--@elvariable id="user" type="com.uran.model.User"--%>
 <form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.id}.html">
     <table>
         <tbody>
@@ -48,6 +48,6 @@
     </table>
 </form:form>
 
-<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/home.html">Home page</a></p>
 </body>
 </html>

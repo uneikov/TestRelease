@@ -1,4 +1,4 @@
-package org.uran.model;
+package com.uran.model;
 
 import javax.persistence.*;
 import java.io.Serializable;

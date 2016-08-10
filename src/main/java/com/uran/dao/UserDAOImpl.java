@@ -1,7 +1,7 @@
-package org.uran.dao;
+package com.uran.dao;
 
+import com.uran.model.User;
 import org.springframework.stereotype.Repository;
-import org.uran.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +52,7 @@ public class UserDAOImpl implements UserDAO {
     @SuppressWarnings("unchecked")
     public List<User> getUsers() {
         //Query query = "from User";
-        //return getCurrentSession().createQuery("SELECT * from User").list();
+        //return getCurrentSession().createQuery("FROM user").list();
         return null;
     }
 }

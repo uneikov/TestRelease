@@ -1,4 +1,4 @@
-package org.uran.init;
+package com.uran.init;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
-@ComponentScan("org.uran")
+@ComponentScan("com.uran")
 @EnableWebMvc
 public class BaseTestConfig {
 

@@ -1,7 +1,7 @@
-package org.uran.service;
+package com.uran.service;
 
-import org.uran.dao.UserDAO;
-import org.uran.model.User;
+import com.uran.dao.UserDAO;
+import com.uran.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

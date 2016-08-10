@@ -1,14 +1,11 @@
-package org.uran.service;
+package com.uran.dao;
 
-import org.uran.model.User;
+import com.uran.model.User;
 
 import java.util.List;
 
-/*
- * Created by URAN on 09.08.2016.
- */
 
-public interface UserService {
+public interface UserDAO {
     void addUser(User user);
     void updateUser(User user);
     User getUser(int id);
