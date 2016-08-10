@@ -1,12 +1,16 @@
-package com.uran.service;
+package org.uran.service;
 
-import com.uran.dao.UserDAO;
-import com.uran.model.User;
+import org.uran.dao.UserDAO;
+import org.uran.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
+/*
+ * Created by URAN on 09.08.2016.
+ */
 
 @Service
 @Transactional

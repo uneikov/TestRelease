@@ -1,4 +1,4 @@
-package com.uran.model;
+package org.uran.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,10 +26,6 @@ public class User implements Serializable {
     }
 
     public User(){}
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

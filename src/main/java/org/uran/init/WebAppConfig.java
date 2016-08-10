@@ -1,4 +1,4 @@
-package com.uran.init;
+package org.uran.init;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("com.uran")
+@ComponentScan("org.uran")
 @EnableWebMvc
 @EnableTransactionManagement
 @PropertySource("classpath:application.properties")
@@ -79,4 +79,5 @@ public class WebAppConfig {
         resolver.setViewClass(JstlView.class);
         return resolver;
     }
+
 }
