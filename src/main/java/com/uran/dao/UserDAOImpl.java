@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import java.util.List;
 
 @Repository
@@ -36,8 +37,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUser(int id) {
-        //User user = (User) getCurrentSession().get(User.class, id);
-        return (User) getCurrentSession().get(User.class, id);
+        return getCurrentSession().get(User.class, id);
     }
 
     @Override
@@ -47,12 +47,9 @@ public class UserDAOImpl implements UserDAO {
             getCurrentSession().delete(user);
     }
 
-    //????????????????????????????????????????????????
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsers() {
-        //Query query = "from User";
-        //return getCurrentSession().createQuery("FROM user").list();
-        return null;
+        return getCurrentSession().createQuery("from User").list();
     }
 }

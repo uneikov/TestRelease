@@ -30,7 +30,6 @@
     </tr>
     </thead>
     <tbody>
-    <%--@elvariable id="users" type="com.uran.model.User"--%>
     <c:forEach var="user" items="${users}">
         <tr>
             <td>${user.id}</td>
@@ -47,7 +46,7 @@
     </tbody>
 </table>
 
-<p><a href="${pageContext.request.contextPath}/home.jsp">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/user/home.html">Home page</a></p>
 
 </body>
 </html>

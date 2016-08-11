@@ -32,7 +32,7 @@
         </tr>
         <tr>
             <td>isAdmin:</td>
-            <td><form:input path="isadmin" /></td>
+            <td><form:input path="isAdmin" /></td>
         </tr>
         <tr>
             <td>createdDate:</td>
