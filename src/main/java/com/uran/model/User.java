@@ -17,6 +17,7 @@ public class User implements Serializable {
     private Boolean isAdmin;
     private Date createdDate;
 
+
     public User(Integer id, String name, Integer age, Boolean isAdmin, Date createdDate) {
         this.id = id;
         this.name = name;
