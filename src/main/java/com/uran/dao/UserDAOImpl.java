@@ -19,15 +19,12 @@ public class UserDAOImpl implements UserDAO {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public void addUser(User user) {
         getCurrentSession().save(user);
     }
 
-    @Override
     public void updateUser(User user) {
         User userToUpdate = getUser(user.getId());
-        userToUpdate.setId(0);
         userToUpdate.setName(user.getName());
         userToUpdate.setAge(user.getAge());
         userToUpdate.setIsAdmin(user.getIsAdmin());
@@ -35,19 +32,16 @@ public class UserDAOImpl implements UserDAO {
         getCurrentSession().update(userToUpdate);
     }
 
-    @Override
     public User getUser(int id) {
         return getCurrentSession().get(User.class, id);
     }
 
-    @Override
     public void deleteUser(int id) {
         User user = getUser(id);
         if (user != null)
             getCurrentSession().delete(user);
     }
 
-    @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsers() {
         return getCurrentSession().createQuery("from User").list();
