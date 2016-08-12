@@ -66,6 +66,7 @@ public class User implements Serializable {
     }
 
     //@Column(name = "CREATEDDATE")
+    @Temporal( TemporalType.TIMESTAMP)
     public Date getCreatedDate() {
         return createdDate;
     }

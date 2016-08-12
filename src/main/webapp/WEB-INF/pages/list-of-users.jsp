@@ -17,7 +17,7 @@
     <title>List of users</title>
 </head>
 <body>
-<h1>List of teams</h1>
+<h1>List of users</h1>
 <p>Here you can see the list of users, edit them, remove or update.</p>
 <table border="1px" cellpadding="0" cellspacing="0" >
     <thead>
@@ -46,7 +46,7 @@
     </tbody>
 </table>
 
-<p><a href="${pageContext.request.contextPath}/user/home.html">Home page</a></p>
+<p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 
 </body>
 </html>

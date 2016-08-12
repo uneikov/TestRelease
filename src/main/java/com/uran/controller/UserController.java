@@ -52,7 +52,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
-    public ModelAndView edditingUser(@ModelAttribute User user, @PathVariable Integer id) {
+    public ModelAndView editingUser(@ModelAttribute User user, @PathVariable Integer id) {
         ModelAndView modelAndView = new ModelAndView("home");
         userService.updateUser(user);
         String message = "User was successfully edited.";
