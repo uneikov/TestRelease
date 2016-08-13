@@ -58,8 +58,7 @@ public class WebAppConfig {
         Properties properties = new Properties();
         properties.put(PROPERTY_NAME_HIBERNATE_DIALECT, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_DIALECT));
         properties.put(PROPERTY_NAME_HIBERNATE_SHOW_SQL, env.getRequiredProperty(PROPERTY_NAME_HIBERNATE_SHOW_SQL));
-        properties.put("hibernate.search.default.directory_provider",
-                env.getRequiredProperty("org.hibernate.search.store.impl.FSDirectoryProvider"));
+        //properties.put("hibernate.search.default.directory_provider", env.getRequiredProperty("org.hibernate.search.store.impl.FSDirectoryProvider"));
         return properties;
     }
 

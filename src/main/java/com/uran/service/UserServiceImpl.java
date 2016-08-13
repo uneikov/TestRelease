@@ -38,4 +38,8 @@ public class UserServiceImpl implements UserService {
     public List<User> getUsers() {
         return userDAO.getUsers();
     }
+
+    public List<User> getUsersBySearch(String userName) {
+        return userDAO.getUsersBySearch(userName);
+    }
 }

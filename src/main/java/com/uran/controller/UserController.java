@@ -77,4 +77,20 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value="/search", method= RequestMethod.GET)
+    public ModelAndView inputUsers() {
+        ModelAndView modelAndView = new ModelAndView("search-user-form");
+        modelAndView.addObject("user", new User());
+        return modelAndView;
+    }
+
+    @RequestMapping(value="/search", method=RequestMethod.POST)
+    public ModelAndView searchUsers(@ModelAttribute User user) {
+        ModelAndView modelAndView = new ModelAndView("search-of-users");
+        List<User> users = userService.getUsersBySearch(user.getName());
+        modelAndView.addObject("users_search", users);
+        //String message = "User was successfully added.";
+        //modelAndView.addObject("message", message);
+        return modelAndView;
+    }
 }
