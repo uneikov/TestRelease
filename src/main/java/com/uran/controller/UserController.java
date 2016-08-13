@@ -88,9 +88,10 @@ public class UserController {
     public ModelAndView searchUsers(@ModelAttribute User user) {
         ModelAndView modelAndView = new ModelAndView("search-of-users");
         List<User> users = userService.getUsersBySearch(user.getName());
+        modelAndView.addObject("users_size", users.size());
         modelAndView.addObject("users_search", users);
-        //String message = "User was successfully added.";
-        //modelAndView.addObject("message", message);
+        String message = "Search result:";
+        modelAndView.addObject("message", message);
         return modelAndView;
     }
 }

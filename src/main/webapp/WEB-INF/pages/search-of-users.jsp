@@ -17,15 +17,18 @@
     <title>Search of users</title>
 </head>
 <body>
-<h1>Search of users</h1>
+<h1>Search result of users</h1>
 
 <c:if test="${empty users_search}">
     <p>Sorry... no such user(s) found</p>
 </c:if>
 
 <c:if test="${not empty users_search}">
-    <p>Here you can search users by name, edit them, remove or update.</p>
-<table border="1px" cellpadding="0" cellspacing="0" >
+    <p>Here you can see users by name, edit them, remove or update.</p>
+    <p>
+        ${users_size}
+    </p>
+<table border="1" cellpadding="5" cellspacing="5" >
     <thead>
     <tr>
         <th width="10%">id</th>
@@ -33,6 +36,7 @@
         <th width="10%">age</th>
         <th width="10%">isAdmin</th>
         <th width="20%">createdDate</th>
+        <th width="25%">Actions</th>
     </tr>
     </thead>
     <tbody>

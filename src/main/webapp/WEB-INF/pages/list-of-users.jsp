@@ -19,7 +19,7 @@
 <body>
 <h1>List of users</h1>
 <p>Here you can see the list of users, edit them, remove or update.</p>
-<table border="1px" cellpadding="0" cellspacing="0" >
+<table border="1" cellpadding="5" cellspacing="5" >
     <thead>
     <tr>
         <th width="10%">id</th>
@@ -27,6 +27,7 @@
         <th width="10%">age</th>
         <th width="10%">isAdmin</th>
         <th width="20%">createdDate</th>
+        <th width="25%">Actions</th>
     </tr>
     </thead>
     <tbody>

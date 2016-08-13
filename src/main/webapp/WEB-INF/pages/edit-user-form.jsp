@@ -22,7 +22,7 @@
 <p>${message}</p>
 
 <form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.id}.html">
-    <table>
+    <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>
             <td>Name:</td>
@@ -41,7 +41,7 @@
             <td><form:input path="createdDate" /></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Add" /></td>
+            <td><input type="submit" value="Update" /></td>
             <td></td>
         </tr>
         </tbody>

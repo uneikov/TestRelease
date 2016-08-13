@@ -20,7 +20,7 @@
 <h1>Add user page</h1>
 <p>Here you can add a new user.</p>
 <form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/add.html">
-    <table>
+    <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>
             <td>Id:</td>
