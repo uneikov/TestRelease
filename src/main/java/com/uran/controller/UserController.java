@@ -48,6 +48,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("list-of-users");
         List<User> users = userService.getUsers();
         modelAndView.addObject("users", users);
+        modelAndView.addObject("users_size", users.size());
         return modelAndView;
     }
 

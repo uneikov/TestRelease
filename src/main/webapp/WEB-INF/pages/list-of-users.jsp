@@ -18,6 +18,7 @@
 </head>
 <body>
 <h1>List of users</h1>
+<p>${users_size}</p>
 <p>Here you can see the list of users, edit them, remove or update.</p>
 <table border="1" cellpadding="5" cellspacing="5" >
     <thead>
