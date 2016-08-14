@@ -13,6 +13,7 @@ public interface UserService {
     void updateUser(User user);
     User getUser(int id);
     void deleteUser(int id);
-    List<User> getUsers();
+    Long count();
+    List<User> getUsers(int page);
     List<User> getUsersBySearch(String userName);
 }

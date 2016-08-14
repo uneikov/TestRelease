@@ -35,8 +35,12 @@ public class UserServiceImpl implements UserService {
         userDAO.deleteUser(id);
     }
 
-    public List<User> getUsers() {
-        return userDAO.getUsers();
+    public Long count(){
+        return userDAO.count();
+    }
+
+    public List<User> getUsers(int page) {
+        return userDAO.getUsers(page);
     }
 
     public List<User> getUsersBySearch(String userName) {

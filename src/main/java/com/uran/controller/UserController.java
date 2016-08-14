@@ -19,6 +19,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    private static final int limitResultsPerPage = 8;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -44,11 +45,22 @@ public class UserController {
     }
 
     @RequestMapping(value="/list")
-    public ModelAndView listOfUsers() {
+    public ModelAndView listOfUsers(@RequestParam(value = "page", required = false) Integer page) {
+
+        Long count = userService.count();
+        if (count == null) return null;
+
+        page = page != null ? page : 0;
+        int startpage = page - 5 > 0 ? page - 5 : 1;
+        int endpage = startpage + count.intValue()/limitResultsPerPage;
+
         ModelAndView modelAndView = new ModelAndView("list-of-users");
-        List<User> users = userService.getUsers();
+        List<User> users = userService.getUsers(page);
+
         modelAndView.addObject("users", users);
-        modelAndView.addObject("users_size", users.size());
+        modelAndView.addObject("startpage",startpage);
+        modelAndView.addObject("endpage",endpage);
+
         return modelAndView;
     }
 

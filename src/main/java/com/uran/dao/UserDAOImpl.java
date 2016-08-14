@@ -2,23 +2,20 @@ package com.uran.dao;
 
 import com.uran.model.User;
 import org.hibernate.query.Query;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
-import org.hibernate.search.SearchFactory;
-import org.hibernate.search.query.dsl.QueryBuilder;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+@PropertySource("classpath:application.properties")
 @Repository
 public class UserDAOImpl implements UserDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
+    private static final int limitResultsPerPage = 8;
 
     private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
@@ -47,9 +44,16 @@ public class UserDAOImpl implements UserDAO {
             getCurrentSession().delete(user);
     }
 
+    public Long count(){
+        return (Long)getCurrentSession().createQuery("select count(*) from User").uniqueResult();
+    }
+
     @SuppressWarnings("unchecked")
-    public List<User> getUsers() {
-        return getCurrentSession().createQuery("from User").list();
+    public List<User> getUsers(int page) {
+        Query query = getCurrentSession().createQuery("from User");
+        query.setFirstResult(page * limitResultsPerPage);
+        query.setMaxResults(limitResultsPerPage);
+        return query.list();
     }
 
     @SuppressWarnings("unchecked")

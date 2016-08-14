@@ -18,35 +18,46 @@
 </head>
 <body>
 <h1>List of users</h1>
-<p>${users_size}</p>
-<p>Here you can see the list of users, edit them, remove or update.</p>
-<table border="1" cellpadding="5" cellspacing="5" >
-    <thead>
-    <tr>
-        <th width="10%">id</th>
-        <th width="15%">name</th>
-        <th width="10%">age</th>
-        <th width="10%">isAdmin</th>
-        <th width="20%">createdDate</th>
-        <th width="25%">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="user" items="${users}">
+<div class="container">
+    <table class="table table-hover" border="1" cellpadding="5" cellspacing="5" >
+        <thead>
         <tr>
-            <td>${user.id}</td>
-            <td>${user.name}</td>
-            <td>${user.age}</td>
-            <td>${user.isAdmin}</td>
-            <td>${user.createdDate}</td>
-            <td>
-                <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
-                <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>
-            </td>
+            <th width="10%">id</th>
+            <th width="15%">name</th>
+            <th width="10%">age</th>
+            <th width="10%">isAdmin</th>
+            <th width="20%">createdDate</th>
+            <th width="25%">Actions</th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <c:forEach var="user" items="${users}">
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.age}</td>
+                <td>${user.isAdmin}</td>
+                <td>${user.createdDate}</td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
+                    <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <ul>
+            <li>
+                <c:forEach begin="${startpage}" end="${endpage}" var="p">
+                <a href="${pageContext.request.contextPath}/user/list/?page=${p-1}">${p-1}</a>
+                </c:forEach>
+            </li>
+        </ul>
+    </div>
+
+</div>
 
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 
