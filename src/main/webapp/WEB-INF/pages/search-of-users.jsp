@@ -28,11 +28,11 @@
 <table border="1" cellpadding="5" cellspacing="5" >
     <thead>
     <tr>
-        <th width="10%">id</th>
-        <th width="15%">name</th>
-        <th width="10%">age</th>
-        <th width="10%">isAdmin</th>
-        <th width="20%">createdDate</th>
+        <th width="10%">ID</th>
+        <th width="15%">Name</th>
+        <th width="10%">Age</th>
+        <th width="10%">Admin</th>
+        <th width="20%">Date of creation</th>
         <th width="25%">Actions</th>
     </tr>
     </thead>
@@ -42,7 +42,17 @@
             <td>${user.id}</td>
             <td>${user.name}</td>
             <td>${user.age}</td>
-            <td>${user.isAdmin}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${user.isAdmin==true}">
+                        <input type="checkbox" id="center-content-area" name="isAdmin" checked disabled/>
+                        <label for="center-content-area"></label>
+                    </c:when>
+                    <c:otherwise>
+                        <input type="checkbox" name="isAdmin" disabled/>
+                    </c:otherwise>
+                </c:choose>
+            </td>
             <td>${user.createdDate}</td>
             <td>
                 <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>

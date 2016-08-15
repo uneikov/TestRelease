@@ -46,7 +46,7 @@
                             <label for="center-content-area"></label>
                         </c:when>
                         <c:otherwise>
-                            <input type="checkbox" name="isAdmin" />
+                            <input type="checkbox" name="isAdmin" disabled/>
                         </c:otherwise>
                     </c:choose>
                 </td>
