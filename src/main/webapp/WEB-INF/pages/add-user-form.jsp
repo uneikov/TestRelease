@@ -23,10 +23,6 @@
     <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>
-            <td>Id:</td>
-            <td><form:input path="id" /></td>
-        </tr>
-        <tr>
             <td>Name:</td>
             <td><form:input path="name" /></td>
         </tr>
@@ -54,6 +50,3 @@
 
 </body>
 </html>
-<!--
-colspan="2" align="center"
--->

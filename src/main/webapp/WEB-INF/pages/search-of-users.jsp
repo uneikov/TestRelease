@@ -25,9 +25,6 @@
 
 <c:if test="${not empty users_search}">
     <p>Here you can see users by name, edit them, remove or update.</p>
-    <p>
-        ${users_size}
-    </p>
 <table border="1" cellpadding="5" cellspacing="5" >
     <thead>
     <tr>
@@ -57,6 +54,5 @@
 </table>
 </c:if>
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
-
 </body>
 </html>

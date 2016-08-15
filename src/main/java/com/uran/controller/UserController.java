@@ -47,16 +47,19 @@ public class UserController {
     @RequestMapping(value="/list")
     public ModelAndView listOfUsers(@RequestParam(value = "page", required = false) Integer page) {
 
-        Long count = userService.count();
-        if (count == null) return null;
+        int startpage, endpage, numberOfPages;
+
+        Integer count = userService.count();
+        if (count == null) return null; //???
+        numberOfPages = count/limitResultsPerPage;
 
         page = page != null ? page : 0;
-        int startpage = page - 5 > 0 ? page - 5 : 1;
-        int endpage = startpage + count.intValue()/limitResultsPerPage;
+        startpage = page - 5 > 0 ? page - 5 : 1;
+        endpage = (numberOfPages > 10) ? startpage + 10 : startpage + numberOfPages;
+
 
         ModelAndView modelAndView = new ModelAndView("list-of-users");
         List<User> users = userService.getUsers(page);
-
         modelAndView.addObject("users", users);
         modelAndView.addObject("startpage",startpage);
         modelAndView.addObject("endpage",endpage);

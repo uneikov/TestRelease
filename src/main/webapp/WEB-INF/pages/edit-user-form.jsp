@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td>isAdmin:</td>
-            <td><form:input path="isAdmin" /></td>
+            <td><form:checkbox path="isAdmin" value="${user.isAdmin}"/></td>
         </tr>
         <tr>
             <td>createdDate:</td>

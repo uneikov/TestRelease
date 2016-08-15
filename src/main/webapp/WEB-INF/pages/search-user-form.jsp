@@ -22,12 +22,10 @@
 <form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/search.html">
     <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
-
         <tr>
             <td>Name:</td>
             <td><form:input path="name" /></td>
         </tr>
-
         <tr>
             <td><input type="submit" value="Search" /></td>
             <td></td>
@@ -35,8 +33,6 @@
         </tbody>
     </table>
 </form:form>
-
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
-
 </body>
 </html>

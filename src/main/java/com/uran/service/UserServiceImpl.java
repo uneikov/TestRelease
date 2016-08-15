@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         userDAO.deleteUser(id);
     }
 
-    public Long count(){
+    public Integer count(){
         return userDAO.count();
     }
 

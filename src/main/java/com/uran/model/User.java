@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "user")
+//@Table(name = "user")
 //@Access(value = AccessType.FIELD)
 public class User implements Serializable {
 

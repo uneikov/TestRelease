@@ -10,7 +10,7 @@ public interface UserDAO {
     void updateUser(User user);
     User getUser(int id);
     void deleteUser(int id);
-    Long count();
+    Integer count();
     List<User> getUsers(int page);
     List<User> getUsersBySearch(String userName);
 }

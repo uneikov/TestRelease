@@ -44,8 +44,8 @@ public class UserDAOImpl implements UserDAO {
             getCurrentSession().delete(user);
     }
 
-    public Long count(){
-        return (Long)getCurrentSession().createQuery("select count(*) from User").uniqueResult();
+    public Integer count(){
+        return ((Long)getCurrentSession().createQuery("select count(*) from User").uniqueResult()).intValue();
     }
 
     @SuppressWarnings("unchecked")
@@ -58,53 +58,9 @@ public class UserDAOImpl implements UserDAO {
 
     @SuppressWarnings("unchecked")
     public List<User> getUsersBySearch(String userName) {
-        /*
-        try {
-            FullTextSession fullTextSession = Search.getFullTextSession(getCurrentSession());
-            fullTextSession.createIndexer().startAndWait();
-
-            //org.apache.lucene.search.Query luceneQuery = buildLuceneQuery(userName, User.class);
-
-            SearchFactory searchFactory = fullTextSession.getSearchFactory();
-            QueryBuilder qb = searchFactory.buildQueryBuilder().forEntity(User.class).get();
-            org.apache.lucene.search.Query query = qb.keyword().onFields("name").matching(userName).createQuery();
-
-            //fullTextSession.createFullTextQuery(query, User.class);
-
-            return fullTextSession.createFullTextQuery(query, User.class).list();
-        }catch (Exception e){
-
-        }
-        return null;
-        */
-
-        String hql = "FROM User U WHERE U.name = :user_name";
-        Query query = getCurrentSession().createQuery(hql);
+        String searchQuery = "FROM User U WHERE U.name = :user_name";
+        Query query = getCurrentSession().createQuery(searchQuery);
         query.setParameter("user_name",userName);
         return query.list();
     }
-
-    /*
-    @Transactional
-    public void indexUsers() throws Exception
-    {
-        FullTextSession fullTextSession = Search.getFullTextSession(getCurrentSession());
-        fullTextSession.createIndexer().startAndWait();
-    }
-
-    @Transactional
-    //@SuppressWarnings("unchecked")
-    public List<User> searchUsers(String searchText) throws Exception
-    {
-
-        FullTextSession fullTextSession = Search.getFullTextSession(getCurrentSession());
-
-        QueryBuilder qb = fullTextSession.getSearchFactory().buildQueryBuilder().forEntity(User.class).get();
-        org.apache.lucene.search.Query query = qb.keyword().onFields("name").matching(searchText).createQuery();
-
-        //fullTextSession.createFullTextQuery(query, User.class);
-
-        return fullTextSession.createFullTextQuery(query, User.class).list();
-    }
-    */
 }
