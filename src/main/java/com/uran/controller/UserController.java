@@ -20,10 +20,11 @@ public class UserController {
     @Autowired
     private UserService userService;
     private static final int limitResultsPerPage = 8;
+    private  int startpage, endpage, numberOfPages;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         sdf.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(sdf, true));
     }
@@ -38,6 +39,7 @@ public class UserController {
     @RequestMapping(value="/add", method=RequestMethod.POST)
     public ModelAndView addingUser(@ModelAttribute User user) {
         ModelAndView modelAndView = new ModelAndView("home");
+        user.setCreatedDate(new Date());
         userService.addUser(user);
         String message = "User was successfully added.";
         modelAndView.addObject("message", message);
@@ -46,7 +48,7 @@ public class UserController {
 
     @RequestMapping(value="/list")
     public ModelAndView listOfUsers(@RequestParam(value = "page", required = false) Integer page) {
-
+        /*
         int startpage, endpage, numberOfPages;
 
         Integer count = userService.count();
@@ -56,10 +58,12 @@ public class UserController {
         page = page != null ? page : 0;
         startpage = page - 5 > 0 ? page - 5 : 1;
         endpage = (numberOfPages > 10) ? startpage + 10 : startpage + numberOfPages;
+        */
 
+        //page = setPagingContext(page);
 
         ModelAndView modelAndView = new ModelAndView("list-of-users");
-        List<User> users = userService.getUsers(page);
+        List<User> users = userService.getUsers(setPagingContext(page));
         modelAndView.addObject("users", users);
         modelAndView.addObject("startpage",startpage);
         modelAndView.addObject("endpage",endpage);
@@ -102,12 +106,26 @@ public class UserController {
 
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public ModelAndView searchUsers(@ModelAttribute User user) {
+
+
         ModelAndView modelAndView = new ModelAndView("search-of-users");
         List<User> users = userService.getUsersBySearch(user.getName());
         modelAndView.addObject("users_size", users.size());
         modelAndView.addObject("users_search", users);
-        String message = "Search result:";
-        modelAndView.addObject("message", message);
+        //String message = "Search result:";
+        //modelAndView.addObject("message", message);
         return modelAndView;
+    }
+
+    private int setPagingContext(Integer pageNumber){
+        //int startpage, endpage, numberOfPages;
+
+        Integer count = userService.count();
+        numberOfPages = count/limitResultsPerPage;
+
+        pageNumber = pageNumber != null ? pageNumber : 0;
+        startpage = pageNumber - 5 > 0 ? pageNumber - 5 : 1;
+        endpage = (numberOfPages > 10) ? startpage + 10 : startpage + numberOfPages;
+        return pageNumber;
     }
 }

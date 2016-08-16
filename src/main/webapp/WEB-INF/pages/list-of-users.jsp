@@ -6,8 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
@@ -43,14 +42,16 @@
                     <c:choose>
                         <c:when test="${user.isAdmin==true}">
                             <input type="checkbox" id="center-content-area" name="isAdmin" checked disabled/>
-                            <label for="center-content-area"></label>
+                            <label for="center-content-area">admin</label>
                         </c:when>
                         <c:otherwise>
                             <input type="checkbox" name="isAdmin" disabled/>
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td>${user.createdDate}</td>
+                <td>
+                    <fmt:formatDate value="${user.createdDate}" pattern="dd.MM.yyy HH:mm:ss" />
+                </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
                     <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>

@@ -35,10 +35,6 @@
             <td><form:checkbox path="isAdmin" value="${user.isAdmin}"/></td>
         </tr>
         <tr>
-            <td>createdDate:</td>
-            <td><form:input path="createdDate" /></td>
-        </tr>
-        <tr>
             <td><input type="submit" value="Add" /></td>
             <td></td>
         </tr>
