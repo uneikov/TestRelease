@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     private static final int limitResultsPerPage = 8;
-    private  int startpage, endpage, numberOfPages;
+    private int startpage, endpage;
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -48,23 +48,13 @@ public class UserController {
 
     @RequestMapping(value="/list")
     public ModelAndView listOfUsers(@RequestParam(value = "page", required = false) Integer page) {
-        /*
-        int startpage, endpage, numberOfPages;
-
-        Integer count = userService.count();
-        if (count == null) return null; //???
-        numberOfPages = count/limitResultsPerPage;
 
         page = page != null ? page : 0;
-        startpage = page - 5 > 0 ? page - 5 : 1;
-        endpage = (numberOfPages > 10) ? startpage + 10 : startpage + numberOfPages;
-        */
-
-        //page = setPagingContext(page);
 
         ModelAndView modelAndView = new ModelAndView("list-of-users");
-        List<User> users = userService.getUsers(setPagingContext(page));
+        List<User> users = userService.getUsers(page);
         modelAndView.addObject("users", users);
+        setPagingContext(userService.count(), page);
         modelAndView.addObject("startpage",startpage);
         modelAndView.addObject("endpage",endpage);
 
@@ -97,35 +87,37 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/search", method= RequestMethod.GET)
+    @RequestMapping(value="/search")
     public ModelAndView inputUsers() {
         ModelAndView modelAndView = new ModelAndView("search-user-form");
         modelAndView.addObject("user", new User());
         return modelAndView;
     }
 
-    @RequestMapping(value="/search", method=RequestMethod.POST)
-    public ModelAndView searchUsers(@ModelAttribute User user) {
+    @RequestMapping(value="/outsearch")
+    public ModelAndView nextPageOfUsers(
+            @RequestParam(value = "name") String name,
+            @RequestParam(value = "page", required = false) Integer page)
+    {
 
+        page = page != null ? page : 0;
 
         ModelAndView modelAndView = new ModelAndView("search-of-users");
-        List<User> users = userService.getUsersBySearch(user.getName());
-        modelAndView.addObject("users_size", users.size());
+        List<User> users = userService.getUsersBySearch(name, page);
+        modelAndView.addObject("user_name", name);
+        modelAndView.addObject("page_num", page);
         modelAndView.addObject("users_search", users);
-        //String message = "Search result:";
-        //modelAndView.addObject("message", message);
+
+        setPagingContext(users.size(), page);
+        modelAndView.addObject("startpage",startpage);
+        modelAndView.addObject("endpage",endpage);
+
         return modelAndView;
     }
 
-    private int setPagingContext(Integer pageNumber){
-        //int startpage, endpage, numberOfPages;
-
-        Integer count = userService.count();
-        numberOfPages = count/limitResultsPerPage;
-
-        pageNumber = pageNumber != null ? pageNumber : 0;
+    private void setPagingContext(Integer size, Integer pageNumber){
+        int numberOfPages = size/limitResultsPerPage;
         startpage = pageNumber - 5 > 0 ? pageNumber - 5 : 1;
         endpage = (numberOfPages > 10) ? startpage + 10 : startpage + numberOfPages;
-        return pageNumber;
     }
 }

@@ -28,7 +28,7 @@
             <th width="15%">Name</th>
             <th width="10%">Age</th>
             <th width="10%">Admin</th>
-            <th width="20%">Date of creation</th>
+            <th width="20%">Date&Time of creation</th>
             <th width="25%">Actions</th>
         </tr>
         </thead>

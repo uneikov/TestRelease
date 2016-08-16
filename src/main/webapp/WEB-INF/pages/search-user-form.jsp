@@ -19,12 +19,13 @@
 <body>
 <h1>Search user page</h1>
 <p>Here you can specify user name for search.</p>
-<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/search.html">
+
+<form:form method="GET" commandName="user" action="${pageContext.request.contextPath}/user/outsearch/?name=${name}&page=${0}" >
     <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>
             <td>Name:</td>
-            <td><form:input path="name" /></td>
+            <td><input type="text" name="name" /></td>
         </tr>
         <tr>
             <td><input type="submit" value="Search" /></td>
@@ -33,6 +34,8 @@
         </tbody>
     </table>
 </form:form>
+
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
+
 </body>
 </html>

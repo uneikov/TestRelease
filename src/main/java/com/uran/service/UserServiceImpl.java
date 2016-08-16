@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         return userDAO.getUsers(page);
     }
 
-    public List<User> getUsersBySearch(String userName) {
-        return userDAO.getUsersBySearch(userName);
+    public List<User> getUsersBySearch(String userName, int page) {
+        return userDAO.getUsersBySearch(userName, page);
     }
 }

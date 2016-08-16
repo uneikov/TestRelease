@@ -15,5 +15,5 @@ public interface UserService {
     void deleteUser(int id);
     Integer count();
     List<User> getUsers(int page);
-    List<User> getUsersBySearch(String userName);
+    List<User> getUsersBySearch(String userName, int page);
 }

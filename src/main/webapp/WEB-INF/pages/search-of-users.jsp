@@ -19,21 +19,27 @@
 <body>
 <h1>Search result of users</h1>
 
-<c:if test="${empty users_search}">
+<c:if test="${empty users_search  and page_num == 0}">
     <p>Sorry... no such user(s) found</p>
+</c:if>
+
+<c:if test="${empty users_search  and page_num > 0}">
+    <p>Sorry... no more users found</p>
+    <p>See all users on the previous pages</p>
 </c:if>
 
 <c:if test="${not empty users_search}">
     <p>Here you can see users by name, edit them, remove or update.</p>
 
-<table border="1" cellpadding="5" cellspacing="5" >
+<div class="container">
+<table class="table table-hover" border="1" cellpadding="5" cellspacing="5" >
     <thead>
     <tr>
         <th width="10%">ID</th>
         <th width="15%">Name</th>
         <th width="10%">Age</th>
         <th width="10%">Admin</th>
-        <th width="20%">Date of creation</th>
+        <th width="20%">Date&Time of creation</th>
         <th width="25%">Actions</th>
     </tr>
     </thead>
@@ -64,8 +70,21 @@
         </tr>
     </c:forEach>
     </tbody>
+
 </table>
+
 </c:if>
+    <div class="pagination">
+        <ul>
+            <li>
+                <c:forEach begin="${startpage}" end="${endpage}" var="p">
+                    <a href="${pageContext.request.contextPath}/user/outsearch/?name=${user_name}&page=${p-1}">${p-1}</a>
+                </c:forEach>
+            </li>
+        </ul>
+    </div>
+</div>
+
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 </body>
 </html>

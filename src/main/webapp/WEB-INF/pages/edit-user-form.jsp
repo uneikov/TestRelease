@@ -33,11 +33,11 @@
             <td><form:input path="age" /></td>
         </tr>
         <tr>
-            <td>isAdmin:</td>
+            <td>Admin:</td>
             <td><form:checkbox path="isAdmin" value="${user.isAdmin}"/></td>
         </tr>
         <tr>
-            <td>createdDate:</td>
+            <td>Date & Time:</td>
             <td><form:input path="createdDate" /></td>
         </tr>
         <tr>

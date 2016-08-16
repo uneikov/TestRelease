@@ -57,9 +57,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @SuppressWarnings("unchecked")
-    public List<User> getUsersBySearch(String userName) {
+    public List<User> getUsersBySearch(String userName, int page) {
         String searchQuery = "FROM User U WHERE U.name = :user_name";
         Query query = getCurrentSession().createQuery(searchQuery);
+        query.setFirstResult(page * limitResultsPerPage);
+        query.setMaxResults(limitResultsPerPage);
         query.setParameter("user_name",userName);
         return query.list();
     }

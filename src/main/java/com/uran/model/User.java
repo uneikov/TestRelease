@@ -5,16 +5,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-//@Table(name = "user")
-//@Access(value = AccessType.FIELD)
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer age;
     private Boolean isAdmin;
+    @Temporal( TemporalType.TIMESTAMP)
     private Date createdDate;
 
 
@@ -28,9 +29,6 @@ public class User implements Serializable {
 
     public User(){}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "ID", nullable = false, unique = true)
     public Integer getId() {
         return id;
     }
@@ -39,7 +37,6 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    //@Column(name = "NAME")
     public String getName() {
         return name;
     }
@@ -48,7 +45,6 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    //@Column(name = "AGE")
     public Integer getAge() {
         return age;
     }
@@ -57,7 +53,6 @@ public class User implements Serializable {
         this.age = age;
     }
 
-    //@Column(name = "ISADMIN")
     public Boolean getIsAdmin() {
         return isAdmin;
     }
@@ -66,8 +61,6 @@ public class User implements Serializable {
         isAdmin = admin;
     }
 
-    //@Column(name = "CREATEDDATE")
-    @Temporal( TemporalType.TIMESTAMP)
     public Date getCreatedDate() {
         return createdDate;
     }
