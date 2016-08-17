@@ -1,0 +1,39 @@
+USE TEST;
+
+CREATE TABLE IF NOT EXISTS user (  
+  `id` int(8) NOT NULL AUTO_INCREMENT,  
+  `name` varchar(25) NOT NULL,  
+  `age` int NOT NULL,  
+  `isAdmin` bit NOT NULL,
+  `createdDate` TIMESTAMP,
+  PRIMARY KEY (id)  
+) DEFAULT CHARSET=utf8;  
+
+INSERT INTO user
+(name, age, isAdmin, createdDate)
+VALUES
+('Abraham', 33, 0, NOW()),
+('Isaak', 44, 0, NOW()),
+('Федор', 22, 0, NOW()),
+('Пантелеймон', 11, 0, NOW()),
+('Серафим', 48, 0, NOW()),
+('Варфоломей', 65, 0, NOW()),
+('Jesus Christ', 33, 1, NOW()),
+('Виссарион', 101, 0, NOW()),
+('Linus Torwalds', 45, 1, NOW()),
+('Велемир', 29, 0, NOW()),
+('Jimmi Hendrix', 35, 0, NOW()),
+('Пенелопа Крус', 38, 0, NOW()),
+('John Bon', 29, 0, NOW()),
+('Кай Юлий', 54, 0, NOW()),
+('Martin Luter', 56, 0, NOW()),
+('Doctor Moro', 68, 0, NOW()),
+('Hannibal Lector', 67, 0, NOW()),
+('Иван Иванович', 21, 0, NOW()),
+('Иван Иванович', 22, 0, NOW()),
+('Иван Иванович', 23, 0, NOW()),
+('Иван Иванович', 24, 0, NOW()),
+('Иван Иванович', 25, 0, NOW()),
+('Иван Иванович', 26, 0, NOW()),
+('Иван Иванович', 27, 0, NOW()),
+('Семён Семёнович', 73, 0, NOW());
