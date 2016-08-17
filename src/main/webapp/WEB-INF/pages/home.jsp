@@ -18,7 +18,7 @@
 <body>
 <h1>Home page</h1>
 <p>
-${message}<br/>
+${message}<br/><br/>
     <a href="${pageContext.request.contextPath}/user/list.html">User list</a><br/>
     <a href="${pageContext.request.contextPath}/user/add.html">Add new user</a><br/>
     <a href="${pageContext.request.contextPath}/user/search.html">User search</a><br/>
