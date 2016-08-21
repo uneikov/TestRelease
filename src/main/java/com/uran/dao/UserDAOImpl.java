@@ -2,14 +2,13 @@ package com.uran.dao;
 
 import com.uran.model.User;
 import org.hibernate.query.Query;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-@PropertySource("classpath:application.properties")
+
 @Repository
 public class UserDAOImpl implements UserDAO {
 
