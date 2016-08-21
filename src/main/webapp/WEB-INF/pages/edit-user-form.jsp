@@ -21,7 +21,7 @@
 <p>Here you can edit the existing user.</p>
 <p>${message}</p>
 
-<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.id}.html">
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/edit/${user.id}.html">
     <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>
@@ -37,7 +37,7 @@
             <td><form:checkbox path="isAdmin" value="${user.isAdmin}"/></td>
         </tr>
         <tr>
-            <td>Date & Time:</td>
+            <td>Date &amp; Time:</td>
             <td><form:input path="createdDate" /></td>
         </tr>
         <tr>

@@ -13,15 +13,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        h1 {text-align:center;}
+        p {text-align:center;}
+    </style>
     <title>Home page</title>
 </head>
 <body>
-<h1>Home page</h1>
+<div class="dblogo">
+    <img src="${pageContext.request.contextPath}/images/frontpage.png" alt="DB logo" width="100%" border="1" />
+</div>
+<h1>Welcome to my first [Spring MVC/Hibernate/MySQL] web application for JavaRush.</h1>
+<h1>Use links below to access the database.</h1>
 <p>
-${message}<br/><br/>
-    <a href="${pageContext.request.contextPath}/user/list.html">User list</a><br/>
-    <a href="${pageContext.request.contextPath}/user/add.html">Add new user</a><br/>
-    <a href="${pageContext.request.contextPath}/user/search.html">User search</a><br/>
+    ${message}<br/>
+<table class="table table-hover" border="1" cellpadding="5" cellspacing="5" style="width:100%">
+    <thead>
+    <tr>
+        <th style="width:33%">
+            <a href="${pageContext.request.contextPath}/list.html">User list</a>
+        </th>
+        <th style="width:33%">
+            <a href="${pageContext.request.contextPath}/add.html">Add new user</a>
+        </th>
+        <th style="width:33%">
+            <a href="${pageContext.request.contextPath}/search.html">User search</a>
+        </th>
+    </tr>
+    </thead>
+</table>
 </p>
 </body>
 </html>

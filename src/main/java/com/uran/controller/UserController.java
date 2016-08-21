@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping(value="/user")
 public class UserController {
 
     @Autowired

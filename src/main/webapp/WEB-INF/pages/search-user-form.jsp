@@ -20,7 +20,7 @@
 <h1>Search user page</h1>
 <p>Here you can specify user name for search.</p>
 
-<form:form method="GET" commandName="user" action="${pageContext.request.contextPath}/user/outsearch/?name=${name}&page=${0}" >
+<form:form method="GET" commandName="user" action="${pageContext.request.contextPath}/outsearch/?name=${name}&page=${0}" >
     <table border="1" cellpadding="5" cellspacing="5">
         <tbody>
         <tr>

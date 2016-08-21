@@ -28,7 +28,7 @@
             <th width="15%">Name</th>
             <th width="10%">Age</th>
             <th width="10%">Admin</th>
-            <th width="20%">Date&Time of creation</th>
+            <th width="20%">Date&amp;Time of creation</th>
             <th width="25%">Actions</th>
         </tr>
         </thead>
@@ -53,8 +53,8 @@
                     <fmt:formatDate value="${user.createdDate}" pattern="dd.MM.yyy HH:mm:ss" />
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
-                    <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>
+                    <a href="${pageContext.request.contextPath}/edit/${user.id}.html">Edit</a><br/>
+                    <a href="${pageContext.request.contextPath}/delete/${user.id}.html">Delete</a><br/>
                 </td>
             </tr>
         </c:forEach>
@@ -65,7 +65,7 @@
         <ul>
             <li>
                 <c:forEach begin="${startpage}" end="${endpage}" var="p">
-                <a href="${pageContext.request.contextPath}/user/list/?page=${p-1}">${p-1}</a>
+                <a href="${pageContext.request.contextPath}/list/?page=${p-1}">${p-1}</a>
                 </c:forEach>
             </li>
         </ul>

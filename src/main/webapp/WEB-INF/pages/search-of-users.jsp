@@ -64,8 +64,8 @@
                 <fmt:formatDate value="${user.createdDate}" pattern="dd.MM.yyy HH:mm:ss" />
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
-                <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>
+                <a href="${pageContext.request.contextPath}/edit/${user.id}.html">Edit</a><br/>
+                <a href="${pageContext.request.contextPath}/delete/${user.id}.html">Delete</a><br/>
             </td>
         </tr>
     </c:forEach>
@@ -78,7 +78,7 @@
         <ul>
             <li>
                 <c:forEach begin="${startpage}" end="${endpage}" var="p">
-                    <a href="${pageContext.request.contextPath}/user/outsearch/?name=${user_name}&page=${p-1}">${p-1}</a>
+                    <a href="${pageContext.request.contextPath}/outsearch/?name=${user_name}&page=${p-1}">${p-1}</a>
                 </c:forEach>
             </li>
         </ul>
